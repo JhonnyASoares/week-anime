@@ -57,8 +57,6 @@ function registerAnime()
 
         echo json_encode([
             "success" => true,
-            '$streamingPlatforms' => $streamingPlatforms,
-            "data" => $_POST,
             "message" => "Sucesso ao ". $message ." anime!"
         ]);
     } catch (Exception $e) {

@@ -1,0 +1,339 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #0f1117;
+  color: #f1f1f1;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-card {
+  background: #181b24;
+
+  border: 1px solid #292d3a;
+  border-radius: 14px;
+
+  padding: 35px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  form {
+    margin: 0;
+  }
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  button {
+    max-width: 20%;
+    margin: 0;
+  }
+}
+
+.anime-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 10px 15px;
+
+  border: 1px solid #303542;
+  border-radius: 8px;
+
+  background: #11141b;
+
+  margin-bottom: 10px;
+  img {
+    height: 40px;
+
+    border-radius: 4px;
+
+    object-fit: cover;
+  }
+  span {
+    margin-left: 10px;
+
+    font-size: 14px;
+  }
+  &:hover {
+    background: #151923;
+    cursor: pointer;
+  }
+}
+.anime-selected {
+  background: #222c43;
+}
+
+h1 {
+  margin: 0 0 8px;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0 0 30px;
+
+  color: #9297a5;
+  font-size: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #d9dce5;
+}
+
+label span {
+  color: #777d8d;
+  font-weight: normal;
+}
+
+input,
+select {
+  width: 100%;
+
+  border: 1px solid #303542;
+  border-radius: 8px;
+
+  background: #11141b;
+  color: #f1f1f1;
+
+  padding: 12px 14px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+input::placeholder {
+  color: #5f6573;
+}
+
+input:hover,
+select:hover {
+  border-color: #414756;
+}
+
+input:focus,
+select:focus {
+  border-color: #7c5cff;
+
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
+
+  background: #141720;
+}
+
+select {
+  cursor: pointer;
+}
+
+select[multiple] {
+  min-height: 120px;
+}
+
+select option {
+  padding: 8px;
+}
+
+select option:checked {
+  background: #7c5cff;
+  color: white;
+}
+
+small {
+  margin-top: 7px;
+
+  color: #666c7a;
+  font-size: 12px;
+}
+
+button {
+  width: 100%;
+
+  margin-top: 5px;
+
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #7c5cff;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+button:hover {
+  background: #6d4ff0;
+
+  box-shadow: 0 5px 20px rgba(124, 92, 255, 0.25);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+.streaming-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.streaming-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0;
+  padding: 12px 14px;
+
+  border: 1px solid #303542;
+  border-radius: 8px;
+
+  background: #11141b;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.15s;
+}
+
+/* Esconde o checkbox original */
+.streaming-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Checkbox visual */
+.checkmark {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  border: 2px solid #454b5a;
+  border-radius: 5px;
+
+  background: #11141b;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+/* Nome da plataforma */
+.platform-name {
+  color: #cfd2dc;
+  font-size: 14px;
+}
+
+/* Hover */
+.streaming-option:hover {
+  border-color: #50576a;
+  background: #151923;
+}
+
+/* Checkbox selecionado */
+.streaming-option:has(input:checked) {
+  border-color: #7c5cff;
+  background: rgba(124, 92, 255, 0.08);
+}
+
+/* Quadradinho selecionado */
+.streaming-option:has(input:checked) .checkmark {
+  border-color: #7c5cff;
+  background: #7c5cff;
+
+  position: relative;
+}
+
+/* Check ✓ */
+.streaming-option:has(input:checked) .checkmark::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 9px;
+
+  left: 5px;
+  top: 2px;
+
+  border: solid white;
+  border-width: 0 2px 2px 0;
+
+  transform: rotate(45deg);
+}
+
+/* Texto selecionado */
+.streaming-option:has(input:checked) .platform-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .streaming-options {
+    grid-template-columns: 1fr;
+  }
+}

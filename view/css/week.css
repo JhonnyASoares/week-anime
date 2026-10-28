@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Patrick Hand", Arial, Helvetica, sans-serif;
+
+  background: #0f1117;
+  color: #f1f1f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 30px;
+}
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  background: #181b24;
+
+  border: 1px solid #292d3a;
+  border-radius: 14px;
+
+  padding: 35px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  h1 {
+    margin: 0 0 8px;
+
+    font-size: 42px;
+    font-weight: 700;
+  }
+}
+.line {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+
+  background-color: #292d3a;
+}
+.day-section {
+  width: 100%;
+  h2 {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .toggle-day {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: inherit;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.2s,
+      transform 0.2s;
+  }
+
+  .toggle-day:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  a {
+    text-decoration: none;
+  }
+
+  overflow: hidden;
+  max-height: 2000px;
+  opacity: 1;
+
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease;
+
+  &.collapsed {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+.anime-card {
+  position: relative;
+  width: 150px;
+  height: 250px;
+  margin: 10px;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+
+  ::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+
+    background: linear-gradient(120deg, var(--cor1) 30%, var(--cor2));
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+  }
+  .card-overlay {
+    display: flex;
+    justify-content: space-between;
+    .anime-time {
+      border-bottom-right-radius: 10px;
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      overflow: hidden;
+      span {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+        padding: 4px 3px 2px;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      }
+    }
+    .streaming-icons {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-bottom-left-radius: 10px;
+      padding: 4px 3px 2px 2px;
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      img {
+        width: 22px;
+        max-height: 22px;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  .anime-name {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    padding: 2px 3px;
+    span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    }
+  }
+}

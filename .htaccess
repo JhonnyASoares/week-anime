@@ -1,0 +1,15 @@
+
+Options -Indexes
+RewriteEngine On
+
+# Bloqueia o acesso ao arquivo com as credenciais do banco
+RewriteRule ^\.env$ - [F,L]
+
+# Página principal
+RewriteRule ^$ view/Week.php [L]
+
+# Remove .php da URL
+RewriteRule ^register/?$ view/Register.php [L]
+
+# Bloqueia acesso direto a arquivos internos
+RewriteRule ^(model|controller)/ - [F,L]
